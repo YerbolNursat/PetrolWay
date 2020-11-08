@@ -1,7 +1,10 @@
 package com.example.core.presentation.ui
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -10,8 +13,11 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.core.R
+import com.example.data.common.Constants
 import com.example.ui_components.base.BaseActivity
 import com.google.android.material.navigation.NavigationView
+import com.yandex.mapkit.MapKitFactory
+import timber.log.Timber
 
 class MainActivity : BaseActivity() {
     private lateinit var navController: NavController
@@ -22,6 +28,8 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        MapKitFactory.setApiKey(Constants.MAP_API)
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 

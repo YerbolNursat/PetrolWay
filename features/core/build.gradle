@@ -35,6 +35,10 @@ android {
             url "http://maven.google.com/"
         }
     }
+    buildFeatures {
+        dataBinding = true
+    }
+
 }
 
 dependencies {
@@ -85,6 +89,10 @@ dependencies {
     implementation "com.yandex.android:mapkit:$yandex"
     implementation "com.yandex.android:search:$yandex"
     implementation "com.yandex.android:directions:$yandex"
+
+    //  Location
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 
     implementation project(path: ':domain')
     implementation project(path: ':di')
